@@ -17,13 +17,7 @@ con.connect((err) => {
   con.query("SELECT * FROM item", function (err, customers, fields) {
     const jsonCustomers = JSON.parse(JSON.stringify(customers));
     console.log(jsonCustomers);
-    /**
-      [ { id: 1, address: 'Jack Smith', age: 23, name: 'Massachusetts' },
-      { id: 2, address: 'Adam Johnson', age: 27, name: 'New York' },
-      { id: 3, address: 'Katherin Carter', age: 26, name: 'Washington DC' },
-      { id: 4, address: 'Jack London', age: 33, name: 'Nevada' },
-      { id: 5, address: 'Jason Bourne', age: 36, name: 'California' } ]
-    */
+    
 
     let workbook = new excel.Workbook(); //creating workbook
     let worksheet = workbook.addWorksheet("Customers"); //creating worksheet
@@ -53,6 +47,6 @@ con.connect((err) => {
       console.log("Close the database connection.");
     });
 
-    // -> Check 'customer.csv' file in root project folder
+
   });
 });

@@ -13,7 +13,7 @@ pdfMake.vfs = vfsFonts.pdfMake.vfs;
 router.post("/pdf", async (req, res, next) => {
   //res.send('PDF');
 
-  try {
+try {
     //     const data = req.body;
     //     await firestore.collection('item').doc().set(data);
     //     //res.send('Record saved successfuly');
@@ -52,15 +52,12 @@ router.post("/pdf", async (req, res, next) => {
       });
       var documentDefinition = {
         content: [
-          // `Item name  :     ${item}
-          // Description :    ${desc}
-          // Quantity    :    ${qunt}
-          // Amount      :    ${amt}` ,
+         
 
           `${JSON.stringify(itemsArray)}`,
         ],
       };
-      // res.send(itemsArray);
+      
     }
 
     const pdfDoc = pdfMake.createPdf(documentDefinition);
