@@ -11,27 +11,9 @@ const vfsFonts = require("../pdfmake/vfs_fonts");
 pdfMake.vfs = vfsFonts.pdfMake.vfs;
 
 router.post("/pdf", async (req, res, next) => {
-  //res.send('PDF');
 
-try {
-    //     const data = req.body;
-    //     await firestore.collection('item').doc().set(data);
-    //     //res.send('Record saved successfuly');
 
-    // const item = req.body.name;
-    // const desc = req.body.description;
-    // const qunt = req.body.quantity;
-    // const amt = req.body.amount;
-
-    // var documentDefinition = {
-    //     content: [
-    //         `Item name  :     ${item}
-    //         Description :    ${desc}
-    //         Quantity    :    ${qunt}
-    //         Amount      :    ${amt}` ,
-    //         'Nice to meet you!'
-    //     ]
-    // };
+  try {
 
     const items = await firestore.collection("item");
     const data = await items.get();
@@ -52,12 +34,12 @@ try {
       });
       var documentDefinition = {
         content: [
-         
+
 
           `${JSON.stringify(itemsArray)}`,
         ],
       };
-      
+
     }
 
     const pdfDoc = pdfMake.createPdf(documentDefinition);
